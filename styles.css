@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+.sidebar {
+    grid-area: 1 / 1 / 3 / 2;
+    background-color: rgb(231, 245, 41);
+}
+
+.header {
+    grid-area: 1 / 2 / 2 / 3;
+    background-color: white;
+}
+
+.content {
+    grid-area: 2 / 2 / 3 / 3;
+    background-color: rgb(245, 245, 195);
+}
