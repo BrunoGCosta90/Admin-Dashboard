@@ -160,15 +160,15 @@ body {
 .greeting.hi {
     grid-column: 2;
     grid-row: 1;
-    font-size: 14px;
-    align-content: end;
+    font-size: 16px;
+    align-content: center;
 }
 
 .greeting.name {
     grid-column: 2;
     grid-row: 2;
     font-size: 24px;
-    text-align: start;
+    text-align: center;
 }
 
 
@@ -215,4 +215,122 @@ body {
 .content {
     grid-area: 2 / 2 / 3 / 3;
     background-color: var(--light-yellow);
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: repeat(4, min-content);
+}
+
+.projects {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.projects, .announcements, .trending {
+	margin-top: 15px;
+	margin-left: 5px;
+}
+
+.projects-container {
+	grid-column: 1 / 2;
+	grid-row: 2 / 5;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}
+
+.projects-cards {
+	grid-column: 1;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 5px;
+}
+
+.projects-cards > div {
+	border-radius: 10px;
+	margin: 5px;
+	border: 1px solid;
+	padding: 10px;
+	/* display: grid;
+	grid-template-columns: 3px 1fr;
+	grid-template-rows: repeat(3, min-content); */
+}
+
+/* .projects-cards > div > .stripe {
+	grid-column: 1 / 2;
+	grid-row: 1 / 4;
+}
+
+.projects-cards > div > .card-title {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}
+
+.projects-cards > div > .card-description {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+}
+
+.projects-cards > div > .icons {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+} */
+
+.announcements {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}
+
+.announcements-cards {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	display: grid;
+	grid-template-rows: 3fr;
+}
+
+.announcements-cards > div {
+	display: grid;
+	grid-template-rows: repeat(2, min-content);
+	
+}
+
+.announcements-cards > .card1 {
+	grid-row: 1 / 2;
+}
+
+.announcements-cards > .card2 {
+	grid-row: 2 / 3;
+}
+
+.announcements-cards > .card3 {
+	grid-row: 3 / 4;
+}
+
+.trending {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+}
+
+.trending-users {
+	grid-column: 2 / 3;
+	grid-row: 4 / 5;
+	display: grid;
+	grid-template-rows: repeat(4, min-content);
+}
+
+.trending-user1 {
+	grid-row: 1 / 2;
+}
+
+.trending-user2 {
+	grid-row: 2 / 3;
+}
+
+.trending-user3 {
+	grid-row: 3 / 4;
+}
+
+.trending-user4 {
+	grid-row: 4 / 5;
 }
