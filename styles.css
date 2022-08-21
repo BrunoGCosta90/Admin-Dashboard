@@ -1,6 +1,6 @@
 :root{
     --light-green: rgb(230, 230, 230);
-    --dark-green: rgb(0, 102, 0);
+    --bg-color: rgb(252, 3, 73);
 	
 }
 
@@ -22,7 +22,7 @@ body {
 
 .sidebar {
     grid-area: 1 / 1 / 3 / 2;
-    background-color: var(--dark-green);
+    background-color: var(--bg-color);
     display: grid;
     grid-template-rows: repeat(10, min-content);
     gap: 15px;
@@ -39,6 +39,21 @@ body {
     gap: 15px;
     padding-right: 90px;
 }
+
+.sidebar > div:hover, 
+.buttons > button:hover,
+.user > img:hover,
+.user.picture:hover,
+.greeting.picture:hover,
+.trending-users > div:hover,
+.projects-cards > div > .card-title:hover,
+.projects-cards > div > .icons > img:hover,
+.announcements-cards > div:hover  
+ {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
 
 .dashboard{
     margin-top: 15px;
@@ -187,7 +202,7 @@ body {
 .buttons > button {
     border-radius: 25px;
     border: none;
-    background-color: var(--dark-green);
+    background-color: var(--bg-color);
     color: white;
     font-size: 14px;
     font-weight: 800;
@@ -217,7 +232,7 @@ body {
     grid-area: 2 / 2 / 3 / 3;
     background-color: var(--light-green);
 	display: grid;
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: 3fr min-content;
 	grid-template-rows: repeat(4, min-content);
 	
 }
@@ -228,14 +243,16 @@ body {
 }
 
 .projects, .announcements, .trending {
-	margin-top: 15px;
-	margin-left: 7px;
+	margin-top: 25px;
+	margin-left: 12px;
+    font-size: 22px;
 	font-weight: 800;
 }
 
 .projects-container {
 	grid-column: 1 / 2;
 	grid-row: 2 / 5;
+    margin-left: 5px;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
@@ -251,32 +268,41 @@ body {
 }
 
 .projects-cards > div {
-	border-radius: 10px;
-	margin: 7px;
-	
-	border-left: 7px solid var(--dark-green);
-	box-shadow: 1px 1px 3px 2px #888888;
-	padding: 10px;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: repeat(3, min-content);
+    margin: 7px;
+	border-radius: 0.5em;
+	border-left: 10px solid var(--bg-color);
+	box-shadow: 0 0 1px 1px #888888;
+	padding: 15px;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    background-color: white;
 }
 
 
 
 .projects-cards > div > .card-title {
-	grid-column: 1;
-	grid-row: 1 / 2;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .projects-cards > div > .card-description {
-	grid-column: 1;
-	grid-row: 2 / 3;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
 
 .projects-cards > div > .icons {
-	grid-column: 1;
-	grid-row: 3 / 4;
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.projects-cards > div > .icons > img {
+    margin: 0 12px 12px 0;
 }
 
 .announcements {
@@ -287,14 +313,31 @@ body {
 .announcements-cards {
 	grid-column: 2 / 3;
 	grid-row: 2 / 3;
+    margin: 7px 25px 7px 12px;
+    border-radius: 0.5em;
+    padding: 22px;
+	box-shadow: 0 0 1px 1px #888888;
 	display: grid;
 	grid-template-rows: 3fr;
+    background-color: white;
 }
 
 .announcements-cards > div {
 	display: grid;
 	grid-template-rows: repeat(2, min-content);
-	
+    padding: 10px 0;
+    margin: 0 10px;
+    width: 25ch;
+}
+
+.announcements-cards > div > .card-title {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.announcements-cards > div > .card-description {
+    font-size: 12px;
 }
 
 .announcements-cards > .card1 {
@@ -303,6 +346,8 @@ body {
 
 .announcements-cards > .card2 {
 	grid-row: 2 / 3;
+    border-top: 1px solid #888888;
+    border-bottom: 1px solid #888888;
 }
 
 .announcements-cards > .card3 {
@@ -319,20 +364,89 @@ body {
 	grid-row: 4 / 5;
 	display: grid;
 	grid-template-rows: repeat(4, min-content);
+    border-radius: 0.5em;
+    box-shadow: 0 0 1px 1px #888888;
+    /* padding: 15px; */
+    /* padding: 12px 0 12px 0; */
+    margin: 7px 25px 7px 12px;
+    background-color: white;
+}
+
+.trending-users > div {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-rows: 1fr 1fr;
+    margin: 15px;
+   
+}
+
+.trending-users > div > .profile-picture {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.trending-users > div > .profile-picture > img {
+    width: 50px;
+    height: 50px;
+}
+
+.trending-users > div > .profile-at {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: grid;
+    align-items: end;
+    font-size: 14px;
+}
+
+.trending-users > div > .profile-name {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    color: grey;
+    display: grid;
+    align-items: start;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 .trending-user1 {
 	grid-row: 1 / 2;
 }
 
+.trending-user1 > .profile-picture {
+    background-color: blue;
+}
+
 .trending-user2 {
 	grid-row: 2 / 3;
+}
+
+.trending-user2 > .profile-picture {
+    background-image: url(picture/thinking.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: yellow;
 }
 
 .trending-user3 {
 	grid-row: 3 / 4;
 }
 
+.trending-user3 > .profile-picture {
+    background-color: green;
+}
+
 .trending-user4 {
 	grid-row: 4 / 5;
+}
+
+.trending-user4 > .profile-picture {
+    background-color: red;
 }
